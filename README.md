@@ -1,0 +1,1 @@
+# poke-max-raid-catch-rate
