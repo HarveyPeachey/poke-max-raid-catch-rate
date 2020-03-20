@@ -6,12 +6,13 @@ let reformattedPokemon = Pokemon.map((obj) => {
   if (obj.id > 890) {
     return;
   }
-  obj.img = `https://www.pkparaiso.com/imagenes/espada_escudo/sprites/animados-gigante/${(obj.name).toLowerCase()}.gif`;
+  obj.img = `https://www.pkparaiso.com/imagenes/espada_escudo/sprites/animados-gigante/${(obj.name).toLowerCase()}.gif`.replace(' ','_');
   return obj;
 })
 
 reformattedPokemon = reformattedPokemon.filter((i) => i);
 
-console.log(reformattedPokemon);
+var json = JSON.stringify(reformattedPokemon);
 
-//https://www.pkparaiso.com/imagenes/espada_escudo/sprites/animados-gigante/eternatus.gif
+var fs = require('fs');
+fs.writeFile('../data/pokemon.min.json', json, 'utf8', () => {});
