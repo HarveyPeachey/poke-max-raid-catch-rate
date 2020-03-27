@@ -4,8 +4,16 @@ import pokemon from './data/pokemon.min.js'
 
 function App() {
   console.log(pokemon);
+  const optionItems = pokemon.map((item) =>
+    <option key={item.name}>{item.name}</option>
+  );
   return (
     <div className="App">
+      <div>
+        <select>
+          {optionItems}
+        </select>
+      </div>
       <h2>{pokemon[5].name}</h2>
       <img src={pokemon[5].img} alt={pokemon[5].name} />
       <img src={pokemon[5].img_gmax} alt={pokemon[5].name} />
